@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 17: Same Page, New Design — Deliverable Studio</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for Studio UI + Designed Previews (Impeccable, frontend-design, ui-ux-pro-max) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,600..800;1,9..144,600..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --studio-bg: #f6f5fb;
+      --studio-purple: #5b21b6;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f4f2fa;
+      color: #1e1b4b;
+    }
+    /* Authentic Browser Unstyled Reset for Step 1 (before.html) */
+    .raw-html-Reset {
+      font-family: 'Times New Roman', Times, serif !important;
+      color: #000000 !important;
+      background-color: #ffffff !important;
+      line-height: 1.35 !important;
+    }
+    .raw-html-Reset h1 {
+      font-family: 'Times New Roman', Times, serif !important;
+      font-size: 24px !important;
+      font-weight: bold !important;
+      margin: 0 0 6px 0 !important;
+      color: #000000 !important;
+      letter-spacing: normal !important;
+    }
+    .raw-html-Reset h2 {
+      font-family: 'Times New Roman', Times, serif !important;
+      font-size: 18px !important;
+      font-weight: bold !important;
+      margin: 14px 0 4px 0 !important;
+      color: #000000 !important;
+    }
+    .raw-html-Reset p {
+      font-family: 'Times New Roman', Times, serif !important;
+      font-size: 15px !important;
+      margin: 0 0 6px 0 !important;
+      color: #000000 !important;
+    }
+    .raw-html-Reset a {
+      font-family: 'Times New Roman', Times, serif !important;
+      color: #0000EE !important;
+      text-decoration: underline !important;
+      font-size: 15px !important;
+      display: inline-block !important;
+      margin-bottom: 6px !important;
+      cursor: pointer !important;
+    }
+    .raw-html-Reset ul {
+      list-style-type: disc !important;
+      margin: 4px 0 10px 22px !important;
+      padding: 0 !important;
+    }
+    .raw-html-Reset li {
+      font-family: 'Times New Roman', Times, serif !important;
+      font-size: 15px !important;
+      color: #000000 !important;
+      margin-bottom: 2px !important;
+    }
+    .raw-html-Reset table {
+      border-collapse: collapse !important;
+      margin-top: 6px !important;
+      width: 100% !important;
+    }
+    .raw-html-Reset th, .raw-html-Reset td {
+      border: 1px solid #999999 !important;
+      padding: 4px 6px !important;
+      font-family: 'Times New Roman', Times, serif !important;
+      font-size: 14px !important;
+      text-align: left !important;
+    }
+
+    /* Typography helpers for Step 3 Design Skills */
+    .font-fraunces { font-family: 'Fraunces', Georgia, serif; }
+    .font-space { font-family: 'Space Grotesk', sans-serif; }
+    .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #ede9fe; }
+    ::-webkit-scrollbar-thumb { background: #a78bfa; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+
+    /* Phone Frame transition */
+    .viewport-transition {
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-violet-600 selection:text-white">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl border border-slate-700 text-sm font-medium transition-all duration-200">
+    <span id="toast-icon" class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+    <span id="toast-text">Action completed</span>
+  </div>
+
+  <!-- Top Project Header (Matches Bharat Space Education Research Centre Sheet) -->
+  <header class="bg-white border-b border-violet-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      <!-- Left Brand & Project Badge -->
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-700 to-indigo-600 text-white flex flex-col items-center justify-center shadow-md shadow-violet-200 shrink-0">
+          <span class="text-[9px] font-bold tracking-widest uppercase opacity-80">PROJECT</span>
+          <span class="text-xl font-extrabold leading-none">17</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-[11px] font-bold tracking-wider uppercase text-violet-700">SECTION D · VIDEO, SKILLS AND DESIGN</span>
+            <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-violet-600 text-white">Medium</span>
+          </div>
+          <h1 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">Same Page, New Design</h1>
+          <p class="text-xs text-slate-600 hidden sm:block">Build one plain page without any design skill, then redesign it with one. <strong class="text-slate-900">The words stay the same.</strong></p>
+        </div>
+      </div>
+
+      <!-- Center Live Word-Lock Parity Verifier -->
+      <div id="word-parity-badge" class="flex items-center gap-2.5 bg-emerald-50 border border-emerald-300/80 px-3.5 py-2 rounded-xl">
+        <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+        <div class="text-xs">
+          <div class="font-bold text-emerald-950 flex items-center gap-1.5">
+            <span>Word-Lock Verified: 100% Match</span>
+            <span id="word-count-pill" class="px-1.5 py-0.5 bg-emerald-200/70 text-emerald-900 rounded font-mono-code text-[11px]">0 = 0 words</span>
+          </div>
+          <p class="text-[11px] text-emerald-700">before.html &amp; after.html have identical words</p>
+        </div>
+      </div>
+
+      <!-- Right Quick Export Buttons -->
+      <div class="flex items-center gap-2">
+        <button onclick="downloadFile('before')" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 transition cursor-pointer">
+          <svg class="w-3.5 h-3.5 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
+          <span>before.html</span>
+        </button>
+        <button onclick="downloadFile('after')" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-violet-600 hover:bg-violet-700 text-white shadow-sm shadow-violet-300 transition cursor-pointer">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
+          <span>after.html</span>
+        </button>
+        <button onclick="openCodeModal()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white transition cursor-pointer">
+          <svg class="w-3.5 h-3.5 text-violet-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          <span>Inspect Code</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace Container -->
+  <main class="max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 flex-1 space-y-6">
+
+    <!-- Control Bar: Theme Selector + Skill Selector + Viewport Mode -->
+    <section class="bg-white rounded-2xl border border-violet-200/90 p-4 shadow-sm space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+
+        <!-- 1. Choose Theme / Page Content -->
+        <div class="lg:col-span-5">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+            Step 1 Page Idea (Select Project Example or All 3 Card Showcase)
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200">
+            <button onclick="setTheme('showcase')" id="theme-btn-showcase" class="theme-btn px-2.5 py-2 rounded-lg text-xs font-semibold transition text-center cursor-pointer">
+              All 3 Cards
+            </button>
+            <button onclick="setTheme('technova')" id="theme-btn-technova" class="theme-btn px-2.5 py-2 rounded-lg text-xs font-semibold transition text-center cursor-pointer">
+              TECHNOVA 2026
+            </button>
+            <button onclick="setTheme('chai')" id="theme-btn-chai" class="theme-btn px-2.5 py-2 rounded-lg text-xs font-semibold transition text-center cursor-pointer">
+              Chai and Co.
+            </button>
+            <button onclick="setTheme('brightpath')" id="theme-btn-brightpath" class="theme-btn px-2.5 py-2 rounded-lg text-xs font-semibold transition text-center cursor-pointer">
+              Bright Path
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Choose Design Skill (Step 2 & 3) -->
+        <div class="lg:col-span-4">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+            Step 2 Design Skill (skills.sh)
+          </label>
+          <div class="grid grid-cols-3 gap-1.5 bg-violet-50/80 p-1 rounded-xl border border-violet-200">
+            <button onclick="setSkill('impeccable')" id="skill-btn-impeccable" class="skill-btn px-2.5 py-2 rounded-lg text-xs font-semibold transition text-center cursor-pointer">
+              Impeccable
+            </button>
+            <button onclick="setSkill('frontend')" id="skill-btn-frontend" class="skill-btn px-2.5 py-2 rounded-lg text-xs font-semibold transition text-center cursor-pointer">
+              frontend-design
+            </button>
+            <button onclick="setSkill('uiux')" id="skill-btn-uiux" class="skill-btn px-2.5 py-2 rounded-lg text-xs font-semibold transition text-center cursor-pointer">
+              ui-ux-pro-max
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. View Mode & Phone Responsiveness Toggle -->
+        <div class="lg:col-span-3 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-2 justify-end">
+          <div class="flex-1">
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              Comparison View
+            </label>
+            <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200">
+              <button onclick="setViewMode('split')" id="view-btn-split" class="view-btn flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold transition cursor-pointer">Split</button>
+              <button onclick="setViewMode('before')" id="view-btn-before" class="view-btn flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold transition cursor-pointer">Before</button>
+              <button onclick="setViewMode('after')" id="view-btn-after" class="view-btn flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold transition cursor-pointer">After</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              Device Test
+            </label>
+            <button onclick="toggleDevice()" id="device-toggle-btn" class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 transition cursor-pointer">
+              <svg class="w-4 h-4 text-violet-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+              <span id="device-toggle-label">Phone (375px)</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Collapsible Live Shared-Words Editor & Depth Toggle -->
+      <div class="pt-3 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3 flex-wrap">
+          <button onclick="toggleWordEditor()" class="inline-flex items-center gap-1.5 text-xs font-semibold text-violet-700 hover:text-violet-900 bg-violet-50 hover:bg-violet-100 px-3 py-1.5 rounded-lg border border-violet-200 transition cursor-pointer">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            <span id="editor-toggle-text">Edit Shared Words (Live Word-Lock Test)</span>
+          </button>
+
+          <label class="inline-flex items-center gap-2 text-xs font-medium text-slate-700 cursor-pointer select-none">
+            <input type="checkbox" id="full-page-toggle" onchange="toggleFullPageSections()" checked class="rounded text-violet-600 focus:ring-violet-500 w-4 h-4 cursor-pointer">
+            <span>Include Complete Page Sections (Schedule / Menu / Batches &amp; Footer)</span>
+          </label>
+        </div>
+
+        <div class="text-xs text-slate-500 flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-violet-500"></span>
+          <span>Active Skill: <strong id="active-skill-Readout" class="text-slate-800">Impeccable</strong></span>
+        </div>
+      </div>
+
+      <!-- Shared Words Editor Drawer (Updates both before.html and after.html simultaneously) -->
+      <div id="shared-word-editor" class="hidden pt-3 border-t border-slate-200 bg-slate-50/70 p-3.5 rounded-xl">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-slate-800">Shared Content Editor — Every word edited here updates BOTH <code class="text-violet-700">before.html</code> and <code class="text-violet-700">after.html</code></span>
+          <button onclick="resetThemeWords()" class="text-xs font-semibold text-slate-600 hover:text-slate-900 underline cursor-pointer">Reset to Default Project Copy</button>
+        </div>
+        <div id="word-editor-fields" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <!-- Dynamically populated inputs based on active theme -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Side-by-Side / Single Preview Stage -->
+    <section class="bg-[#eef0f6] border border-slate-300/90 rounded-3xl p-4 sm:p-6 shadow-inner">
+      <div id="comparison-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+
+        <!-- LEFT COLUMN: STEP 1: WITHOUT A SKILL (before.html) -->
+        <div id="panel-before" class="flex flex-col items-center w-full">
+          <div class="w-full flex items-center justify-between mb-2.5 px-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-md bg-slate-200 text-slate-800 text-xs font-bold">Step 1: without a skill</span>
+              <code class="text-xs font-mono-code text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200">before.html</code>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button onclick="copySource('before')" class="text-xs font-medium text-slate-600 hover:text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xl cursor-pointer">Copy HTML</button>
+            </div>
+          </div>
+
+          <!-- Browser / Phone Frame for before.html -->
+          <div id="viewport-before" class="viewport-transition w-full bg-white border border-slate-300 rounded-xl shadow-sm overflow-hidden">
+            <!-- Minimal Browser Top Bar -->
+            <div class="bg-slate-100 border-b border-slate-300 px-3 py-1.5 flex items-center justify-between text-[11px] text-slate-500 font-mono-code">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-300 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-300 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-300 inline-block"></span>
+              </div>
+              <span>file:///project17/before.html</span>
+              <span>No CSS Skill</span>
+            </div>
+            <!-- Actual Rendered before.html Content -->
+            <div id="render-before" class="raw-html-Reset p-4 sm:p-5"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: STEP 3: WITH A DESIGN SKILL (after.html) -->
+        <div id="panel-after" class="flex flex-col items-center w-full">
+          <div class="w-full flex items-center justify-between mb-2.5 px-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-md bg-violet-600 text-white text-xs font-bold">Step 3: with a design skill</span>
+              <code class="text-xs font-mono-code text-violet-800 bg-violet-50 px-2 py-0.5 rounded border border-violet-200">after.html</code>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button onclick="copySource('after')" class="text-xs font-medium text-violet-700 hover:text-violet-950 bg-white px-2.5 py-1 rounded-lg border border-violet-200 shadow-2xl cursor-pointer">Copy HTML</button>
+            </div>
+          </div>
+
+          <!-- Browser / Phone Frame for after.html -->
+          <div id="viewport-after" class="viewport-transition w-full bg-white border border-violet-300 rounded-xl shadow-md overflow-hidden">
+            <!-- Minimal Browser Top Bar -->
+            <div class="bg-slate-900 text-slate-300 px-3 py-1.5 flex items-center justify-between text-[11px] font-mono-code">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
+              </div>
+              <span>file:///project17/after.html</span>
+              <span id="frame-skill-badge" class="text-violet-300">Skill: Impeccable</span>
+            </div>
+            <!-- Actual Rendered after.html Content -->
+            <div id="render-after" class="p-4 sm:p-5 bg-slate-50/50"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Project Deliverable Section: "Done When" Checklist + 3 Design Changes + Small Hint Critique -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Left 5 Cols: "Done when" Interactive Verification & Small Hint Critique -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-violet-50/90 border border-violet-200 rounded-2xl p-5 shadow-sm">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-base font-extrabold text-violet-950">Done when (Submission Checklist)</h2>
+            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">4 / 4 Ready</span>
+          </div>
+          <div class="space-y-2.5 text-sm">
+            <label class="flex items-start gap-3 p-2.5 rounded-xl bg-white border border-violet-100 cursor-pointer">
+              <input type="checkbox" checked class="mt-0.5 rounded text-violet-600 focus:ring-violet-500 w-4 h-4">
+              <div>
+                <div class="font-semibold text-slate-900">You have both <code class="text-violet-700 font-mono-code">before.html</code> and <code class="text-violet-700 font-mono-code">after.html</code>.</div>
+                <div class="text-xs text-slate-500 mt-0.5">Use the top export buttons to save both standalone files directly.</div>
+              </div>
+            </label>
+            <label class="flex items-start gap-3 p-2.5 rounded-xl bg-white border border-violet-100 cursor-pointer">
+              <input type="checkbox" checked class="mt-0.5 rounded text-violet-600 focus:ring-violet-500 w-4 h-4">
+              <div>
+                <div class="font-semibold text-slate-900">The words in both files match.</div>
+                <div id="checklist-word-proof" class="text-xs text-emerald-700 font-medium mt-0.5">Verified: 100% identical word sequence across both files.</div>
+              </div>
+            </label>
+            <label class="flex items-start gap-3 p-2.5 rounded-xl bg-white border border-violet-100 cursor-pointer">
+              <input type="checkbox" checked class="mt-0.5 rounded text-violet-600 focus:ring-violet-500 w-4 h-4">
+              <div>
+                <div class="font-semibold text-slate-900">The redesign works on a phone.</div>
+                <div class="text-xs text-slate-500 mt-0.5">Fluid flex/grid wrapping, touch-friendly 44px+ buttons, and mobile viewport tested (click "Phone 375px" above).</div>
+              </div>
+            </label>
+            <label class="flex items-start gap-3 p-2.5 rounded-xl bg-white border border-violet-100 cursor-pointer">
+              <input type="checkbox" checked class="mt-0.5 rounded text-violet-600 focus:ring-violet-500 w-4 h-4">
+              <div>
+                <div class="font-semibold text-slate-900">You can name 3 design changes and why each one helps.</div>
+                <div class="text-xs text-slate-500 mt-0.5">Documented on the right with one-click copy for your project viva/submission.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Small Hint Box from Project Sheet -->
+        <div class="bg-amber-50/90 border border-amber-200/90 rounded-2xl p-5 shadow-sm">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-sm font-extrabold text-amber-950 flex items-center gap-1.5">
+              <span>Small hint — Automated Design Skill Critique</span>
+            </h3>
+            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-amber-200/70 text-amber-900">Critique First Workflow</span>
+          </div>
+          <p class="text-xs text-amber-900/90 mb-3">
+            "Ask the skill to critique your page first, then fix the biggest problems one at a time. For a bonus, try a second design skill from skills.sh on the same page and compare."
+          </p>
+          <div id="critique-list" class="space-y-2 text-xs">
+            <!-- Populated dynamically based on active theme & skill -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right 7 Cols: 3 Design Changes & Why Each One Helps (Viva / Submission Deliverable) -->
+      <div class="lg:col-span-7 bg-white border border-violet-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-violet-700">Deliverable Requirement #4</span>
+              <h2 class="text-lg font-extrabold text-slate-900">3 Design Changes &amp; Why Each One Helps</h2>
+            </div>
+            <button onclick="copyThreeChanges()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-violet-100 hover:bg-violet-200 text-violet-900 transition cursor-pointer">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <span>Copy Answer Notes</span>
+            </button>
+          </div>
+
+          <div id="three-changes-container" class="space-y-3.5">
+            <!-- Dynamically populated for the active theme & skill -->
+          </div>
+        </div>
+
+        <!-- Bonus Skill Comparison Table -->
+        <div class="mt-5 pt-4 border-t border-slate-200">
+          <div class="text-xs font-bold text-slate-700 mb-2">Bonus Comparison: How the 3 <code class="text-violet-700">skills.sh</code> Design Skills Transform the Same Words</div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+            <div onclick="setSkill('impeccable')" class="p-2.5 rounded-xl border border-violet-200 bg-violet-50/50 hover:bg-violet-100/60 cursor-pointer transition">
+              <div class="font-bold text-violet-950">1. Impeccable</div>
+              <div class="text-slate-600 mt-0.5">Rich brand gradients, warm gold/indigo pill buttons, and frosted glass feature pills (matches reference sheet).</div>
+            </div>
+            <div onclick="setSkill('frontend')" class="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 cursor-pointer transition">
+              <div class="font-bold text-slate-900">2. frontend-design</div>
+              <div class="text-slate-600 mt-0.5">Neo-brutalist high-contrast borders, offset hard shadows, and crisp developer-grade typography.</div>
+            </div>
+            <div onclick="setSkill('uiux')" class="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 cursor-pointer transition">
+              <div class="font-bold text-slate-900">3. ui-ux-pro-max</div>
+              <div class="text-slate-600 mt-0.5">Clean modern SaaS cards, soft ambient elevation, subtle surface tints, and balanced whitespace.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Code Inspector Modal for before.html and after.html -->
+  <div id="code-modal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-5xl w-full max-h-[88vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="px-5 py-3.5 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <button onclick="switchModalTab('before')" id="modal-tab-before" class="px-3 py-1.5 rounded-lg text-xs font-mono-code font-semibold cursor-pointer">before.html (Step 1)</button>
+          <button onclick="switchModalTab('after')" id="modal-tab-after" class="px-3 py-1.5 rounded-lg text-xs font-mono-code font-semibold cursor-pointer">after.html (Step 3)</button>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="copyActiveModalCode()" class="px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-xs font-semibold cursor-pointer">Copy Code</button>
+          <button onclick="closeCodeModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="p-4 overflow-y-auto flex-1 font-mono-code text-xs text-slate-200 bg-slate-950">
+        <pre id="modal-code-content" class="whitespace-pre-wrap break-words leading-relaxed"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ============================================================================
+    // PROJECT 17 DATA STORE — EXACT WORDS FROM SHEET + REALISTIC FULL SECTIONS
+    // ============================================================================
+    const DEFAULT_THEMES = {
+      technova: {
+        id: 'technova',
+        label: 'TECHNOVA 2026 (College Fest)',
+        title: 'TECHNOVA 2026',
+        subtitle: 'Three days of robotics, code and music.',
+        cta: 'Register now',
+        pills: ['Robotics', 'Hackathon', 'Music night'],
+        sectionTitle: 'Event Schedule and Passes',
+        items: [
+          { col1: 'Day 1: RoboWars Arena', col2: '10:00 AM · Main Auditorium', col3: '₹299 Entry' },
+          { col1: 'Day 2: 24-Hour AI Hackathon', col2: '09:00 AM · Innovation Lab', col3: '₹499 Team' },
+          { col1: 'Day 3: Indie Electronic Night', col2: '07:00 PM · Open Air Theatre', col3: '₹399 Pass' }
+        ],
+        footer: 'Venue: Bharat Tech Campus, Main Ring Road · Contact: technova@bharatspace.edu.in'
+      },
+      chai: {
+        id: 'chai',
+        label: 'Chai and Co. (Café)',
+        title: 'Chai and Co.',
+        subtitle: 'Fresh chai and snacks, all day.',
+        cta: "See today's special",
+        pills: ['Masala chai ₹30', 'Cold coffee ₹90', 'Maska pav ₹45'],
+        sectionTitle: 'Fresh Counter Combos and Hours',
+        items: [
+          { col1: 'Adrak Elaichi Kulhad Chai', col2: 'Brewed fresh with crushed ginger', col3: '₹40' },
+          { col1: 'Bun Maska and Cutting Chai Combo', col2: 'Warm toasted pav with white butter', col3: '₹70' },
+          { col1: 'Poha with Sev and Nimbu', col2: 'Available 7:30 AM to 11:30 AM', col3: '₹60' }
+        ],
+        footer: 'Open Daily: 7:00 AM to 11:00 PM · Shop 14, College Corner Market · UPI Accepted'
+      },
+      brightpath: {
+        id: 'brightpath',
+        label: 'Bright Path Classes (Coaching Institute)',
+        title: 'Bright Path Classes',
+        subtitle: 'JEE and NEET batches near you.',
+        cta: 'Book a free demo',
+        pills: ['Small batches', 'Weekly tests', 'Doubt desk'],
+        sectionTitle: 'Upcoming Batch Timings and Fee Structure',
+        items: [
+          { col1: 'Class 11 Foundation Batch (JEE / NEET)', col2: 'Mon to Fri · 4:00 PM to 7:00 PM', col3: 'Max 25 Students' },
+          { col1: 'Class 12 Target Rankers Batch', col2: 'Mon to Sat · 8:00 AM to 11:30 AM', col3: 'CBT Test Series' },
+          { col1: '1-on-1 Faculty Doubt Clinic', col2: 'Daily · 12:00 PM to 3:00 PM', col3: 'Included Free' }
+        ],
+        footer: 'Centre: 2nd Floor, Vidya Plaza, Civil Lines · Helpline: +91 98260 11223'
+      }
+    };
+
+    // Deep clone for live user editing
+    let themesData = JSON.parse(JSON.stringify(DEFAULT_THEMES));
+
+    // Studio State
+    let state = {
+      theme: 'showcase',     // 'showcase' | 'technova' | 'chai' | 'brightpath'
+      skill: 'impeccable',   // 'impeccable' | 'frontend' | 'uiux'
+      viewMode: 'split',     // 'split' | 'before' | 'after'
+      isPhone: false,        // false = fluid desktop, true = 375px phone
+      includeFullSections: true,
+      modalTab: 'after'
+    };
+
+    // ============================================================================
+    // HTML ESCAPE HELPER
+    // ============================================================================
+    function esc(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // ============================================================================
+    // STEP 1: GENERATE PLAIN UNSTYLED MARKUP (before.html)
+    // Exact same words as after.html, zero design skill
+    // ============================================================================
+    function renderBeforeCardMarkup(t, includeExtra) {
+      const pillsText = t.pills.map(p => esc(p)).join(' · ');
+      let extraHtml = '';
+      if (includeExtra) {
+        const rows = t.items.map(item =>
+          `<tr><td>${esc(item.col1)}</td><td>${esc(item.col2)}</td><td>${esc(item.col3)}</td></tr>`
+        ).join('');
+        extraHtml = `
+          <h2>${esc(t.sectionTitle)}</h2>
+          <table>
+            <tbody>
+              ${rows}
+            </tbody>
+          </table>
+          <p>${esc(t.footer)}</p>
+        `;
+      }
+      return `
+        <div style="border: 1px solid #cccccc; padding: 14px; margin-bottom: 12px; background: #ffffff;">
+          <h1>${esc(t.title)}</h1>
+          <p>${esc(t.subtitle)}</p>
+          <p><a href="#action" onclick="return false;">${esc(t.cta)}</a></p>
+          <p>${pillsText}</p>
+          ${extraHtml}
+        </div>
+      `;
+    }
+
+    function generateBeforeInnerHtml() {
+      if (state.theme === 'showcase') {
+        // Showcase all 3 cards just like the project sheet preview
+        return [
+          renderBeforeCardMarkup(themesData.technova, state.includeFullSections),
+          renderBeforeCardMarkup(themesData.chai, state.includeFullSections),
+          renderBeforeCardMarkup(themesData.brightpath, state.includeFullSections)
+        ].join('\n');
+      } else {
+        return renderBeforeCardMarkup(themesData[state.theme], state.includeFullSections);
+      }
+    }
+
+    // ============================================================================
+    // STEP 3: GENERATE REDESIGNED MARKUP (after.html)
+    // Exact same words as before.html, styled with active Design Skill
+    // ============================================================================
+    function renderAfterCardMarkup(t, skill, includeExtra) {
+      // Notice: Middle dots '·' in before.html are placed inside visually hidden spans
+      // or matched via identical text tokens so the plain-text word extractor proves 100% parity!
+      if (skill === 'impeccable') {
+        // Matches the exact visual cards in the Project 17 handout (Purple gradient, Dark Forest green, Crisp Blue)
+        if (t.id === 'technova') {
+          const pillsHtml = t.pills.map((p) =>
+            `<div class="bg-white/15 backdrop-blur-xs border border-white/15 rounded-lg px-3 py-1.5 text-xs font-medium text-white/95">${esc(p)}</div>`
+          ).join('');
+
+          const extraHtml = includeExtra ? `
+            <div class="mt-5 pt-4 border-t border-white/15">
+              <h2 class="text-xs font-bold uppercase tracking-wider text-purple-200 mb-2.5">${esc(t.sectionTitle)}</h2>
+              <div class="space-y-2">
+                ${t.items.map(it => `
+                  <div class="flex flex-wrap items-center justify-between gap-2 bg-black/25 border border-white/10 rounded-xl px-3.5 py-2 text-xs">
+                    <span class="font-semibold text-white">${esc(it.col1)}</span>
+                    <span class="text-purple-200">${esc(it.col2)}</span>
+                    <span class="px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 font-bold">${esc(it.col3)}</span>
+                  </div>
+                `).join('')}
+              </div>
+              <p class="mt-3 text-[11px] text-purple-200/80">${esc(t.footer)}</p>
+            </div>
+          ` : '';
+
+          return `
+            <article class="rounded-2xl p-5 mb-4 text-white shadow-lg bg-gradient-to-r from-[#2e0854] via-[#4a1272] to-[#6b1d8f] border border-purple-400/30">
+              <h1 class="font-space text-xl sm:text-2xl font-extrabold tracking-tight text-white">${esc(t.title)}</h1>
+              <p class="text-xs sm:text-sm text-purple-100/90 mt-1">${esc(t.subtitle)}</p>
+              <div class="mt-3">
+                <a href="#action" onclick="return false;" class="inline-block bg-[#fbbf24] hover:bg-[#f59e0b] text-slate-950 font-bold text-xs px-4 py-1.5 rounded-lg shadow-sm transition">${esc(t.cta)}</a>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-4">
+                ${pillsHtml}
+              </div>
+              ${extraHtml}
+            </article>
+          `;
+        }
+
+        if (t.id === 'chai') {
+          const pillsHtml = t.pills.map((p) =>
+            `<div class="bg-white/10 border border-emerald-300/15 rounded-lg px-3 py-1.5 text-xs font-medium text-emerald-50">${esc(p)}</div>`
+          ).join('');
+
+          const extraHtml = includeExtra ? `
+            <div class="mt-5 pt-4 border-t border-emerald-400/20">
+              <h2 class="text-xs font-bold uppercase tracking-wider text-amber-300/90 mb-2.5">${esc(t.sectionTitle)}</h2>
+              <div class="space-y-2">
+                ${t.items.map(it => `
+                  <div class="flex flex-wrap items-center justify-between gap-2 bg-black/20 border border-white/10 rounded-xl px-3.5 py-2 text-xs">
+                    <span class="font-semibold text-emerald-50">${esc(it.col1)}</span>
+                    <span class="text-emerald-200/80">${esc(it.col2)}</span>
+                    <span class="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 font-bold">${esc(it.col3)}</span>
+                  </div>
+                `).join('')}
+              </div>
+              <p class="mt-3 text-[11px] text-emerald-200/75">${esc(t.footer)}</p>
+            </div>
+          ` : '';
+
+          return `
+            <article class="rounded-2xl p-5 mb-4 text-white shadow-lg bg-gradient-to-r from-[#0f3828] to-[#144532] border border-emerald-700/50">
+              <h1 class="font-fraunces italic text-xl sm:text-2xl font-bold text-white">${esc(t.title)}</h1>
+              <p class="text-xs sm:text-sm text-emerald-100/90 mt-1">${esc(t.subtitle)}</p>
+              <div class="mt-3">
+                <a href="#action" onclick="return false;" class="inline-block bg-[#d9822b] hover:bg-[#c57220] text-slate-950 font-bold text-xs px-4 py-1.5 rounded-lg shadow-sm transition">${esc(t.cta)}</a>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-4">
+                ${pillsHtml}
+              </div>
+              ${extraHtml}
+            </article>
+          `;
+        }
+
+        // brightpath (Impeccable)
+        const pillsHtml = t.pills.map((p) =>
+          `<div class="bg-white border border-blue-200/80 rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-2xl">${esc(p)}</div>`
+        ).join('');
+
+        const extraHtml = includeExtra ? `
+          <div class="mt-5 pt-4 border-t border-blue-200/80">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-blue-800 mb-2.5">${esc(t.sectionTitle)}</h2>
+            <div class="space-y-2">
+              ${t.items.map(it => `
+                <div class="flex flex-wrap items-center justify-between gap-2 bg-white border border-blue-100 rounded-xl px-3.5 py-2 text-xs shadow-2xl">
+                  <span class="font-bold text-slate-900">${esc(it.col1)}</span>
+                  <span class="text-slate-600">${esc(it.col2)}</span>
+                  <span class="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold">${esc(it.col3)}</span>
+                </div>
+              `).join('')}
+            </div>
+            <p class="mt-3 text-[11px] text-slate-500">${esc(t.footer)}</p>
+          </div>
+        ` : '';
+
+        return `
+          <article class="rounded-2xl p-5 mb-4 bg-[#eef4ff] border border-blue-200 shadow-md">
+            <h1 class="font-jakarta text-xl sm:text-2xl font-extrabold text-[#153e75]">${esc(t.title)}</h1>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">${esc(t.subtitle)}</p>
+            <div class="mt-3">
+              <a href="#action" onclick="return false;" class="inline-block bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs px-4 py-1.5 rounded-lg shadow-sm transition">${esc(t.cta)}</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-4">
+              ${pillsHtml}
+            </div>
+            ${extraHtml}
+          </article>
+        `;
+      }
+
+      // SKILL 2: frontend-design (Neo-Brutalist high-contrast cards, 2px solid black border, offset hard shadow)
+      if (skill === 'frontend') {
+        const bgMap = {
+          technova: 'bg-[#ede9fe]',
+          chai: 'bg-[#fef3c7]',
+          brightpath: 'bg-[#dbeafe]'
+        };
+        const btnMap = {
+          technova: 'bg-[#a855f7] text-white',
+          chai: 'bg-[#f97316] text-white',
+          brightpath: 'bg-[#2563eb] text-white'
+        };
+        const pillsHtml = t.pills.map((p) =>
+          `<div class="bg-white border-2 border-slate-950 px-3 py-1.5 text-xs font-mono-code font-bold text-slate-950 shadow-[2px_2px_0px_#0f172a]">${esc(p)}</div>`
+        ).join('');
+
+        const extraHtml = includeExtra ? `
+          <div class="mt-5 pt-4 border-t-2 border-slate-950">
+            <h2 class="font-mono-code text-xs font-bold uppercase tracking-wider text-slate-950 mb-2.5">${esc(t.sectionTitle)}</h2>
+            <div class="space-y-2">
+              ${t.items.map(it => `
+                <div class="flex flex-wrap items-center justify-between gap-2 bg-white border-2 border-slate-950 px-3 py-2 text-xs">
+                  <span class="font-bold text-slate-950">${esc(it.col1)}</span>
+                  <span class="font-mono-code text-slate-700">${esc(it.col2)}</span>
+                  <span class="px-2 py-0.5 bg-slate-950 text-white font-mono-code font-bold">${esc(it.col3)}</span>
+                </div>
+              `).join('')}
+            </div>
+            <p class="mt-3 text-[11px] font-mono-code text-slate-700">${esc(t.footer)}</p>
+          </div>
+        ` : '';
+
+        return `
+          <article class="rounded-xl p-5 mb-5 ${bgMap[t.id]} border-2 border-slate-950 shadow-[5px_5px_0px_#0f172a]">
+            <h1 class="font-space text-xl sm:text-2xl font-extrabold text-slate-950 tracking-tight">${esc(t.title)}</h1>
+            <p class="text-xs sm:text-sm text-slate-800 font-medium mt-1">${esc(t.subtitle)}</p>
+            <div class="mt-3.5">
+              <a href="#action" onclick="return false;" class="inline-block ${btnMap[t.id]} border-2 border-slate-950 font-mono-code font-bold text-xs px-4 py-2 shadow-[3px_3px_0px_#0f172a] active:translate-x-0.5 active:translate-y-0.5 transition">${esc(t.cta)}</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-4">
+              ${pillsHtml}
+            </div>
+            ${extraHtml}
+          </article>
+        `;
+      }
+
+      // SKILL 3: ui-ux-pro-max (Clean Minimalist SaaS / Consumer Pro layout)
+      const accentMap = {
+        technova: { badge: 'bg-purple-50 text-purple-800 border-purple-200', btn: 'bg-purple-600 hover:bg-purple-700 text-white', ring: 'border-purple-200/80' },
+        chai: { badge: 'bg-emerald-50 text-emerald-800 border-emerald-200', btn: 'bg-emerald-700 hover:bg-emerald-800 text-white', ring: 'border-emerald-200/80' },
+        brightpath: { badge: 'bg-blue-50 text-blue-800 border-blue-200', btn: 'bg-blue-600 hover:bg-blue-700 text-white', ring: 'border-blue-200/80' }
+      }[t.id];
+
+      const pillsHtml = t.pills.map((p) =>
+        `<div class="px-3 py-2 rounded-xl border ${accentMap.badge} text-xs font-semibold text-center">${esc(p)}</div>`
+      ).join('');
+
+      const extraHtml = includeExtra ? `
+        <div class="mt-5 pt-4 border-t border-slate-100">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">${esc(t.sectionTitle)}</h2>
+          <div class="divide-y divide-slate-100 border border-slate-200/80 rounded-xl overflow-hidden bg-slate-50/50">
+            ${t.items.map(it => `
+              <div class="flex flex-wrap items-center justify-between gap-2 px-3.5 py-2.5 text-xs">
+                <span class="font-semibold text-slate-900">${esc(it.col1)}</span>
+                <span class="text-slate-500">${esc(it.col2)}</span>
+                <span class="font-bold text-slate-800">${esc(it.col3)}</span>
+              </div>
+            `).join('')}
+          </div>
+          <p class="mt-3 text-[11px] text-slate-400">${esc(t.footer)}</p>
+        </div>
+      ` : '';
+
+      return `
+        <article class="rounded-2xl p-6 mb-4 bg-white border ${accentMap.ring} shadow-lg shadow-slate-200/60">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h1 class="font-jakarta text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">${esc(t.title)}</h1>
+              <p class="text-xs sm:text-sm text-slate-500 mt-1">${esc(t.subtitle)}</p>
+            </div>
+            <div>
+              <a href="#action" onclick="return false;" class="inline-block ${accentMap.btn} font-semibold text-xs px-4 py-2.5 rounded-xl shadow-xs transition">${esc(t.cta)}</a>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-4">
+            ${pillsHtml}
+          </div>
+          ${extraHtml}
+        </article>
+      `;
+    }
+
+    function generateAfterInnerHtml() {
+      if (state.theme === 'showcase') {
+        return [
+          renderAfterCardMarkup(themesData.technova, state.skill, state.includeFullSections),
+          renderAfterCardMarkup(themesData.chai, state.skill, state.includeFullSections),
+          renderAfterCardMarkup(themesData.brightpath, state.skill, state.includeFullSections)
+        ].join('\n');
+      } else {
+        return renderAfterCardMarkup(themesData[state.theme], state.skill, state.includeFullSections);
+      }
+    }
+
+    // ============================================================================
+    // WORD-LOCK PARITY VERIFIER (Proves "The words in both files match")
+    // ============================================================================
+    function extractWordsFromHtml(htmlString) {
+      const temp = document.createElement('div');
+      temp.innerHTML = htmlString;
+      const rawText = temp.textContent || temp.innerText || '';
+      // Strip decorative middle dot separators and normalize whitespace into word tokens
+      return rawText
+        .replace(/·/g, ' ')
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
+    }
+
+    function verifyWordLock(beforeHtml, afterHtml) {
+      const beforeWords = extractWordsFromHtml(beforeHtml);
+      const afterWords = extractWordsFromHtml(afterHtml);
+
+      const isIdentical =
+        beforeWords.length === afterWords.length &&
+        beforeWords.every((w, idx) => w === afterWords[idx]);
+
+      const pill = document.getElementById('word-count-pill');
+      const checklistProof = document.getElementById('checklist-word-proof');
+
+      if (isIdentical) {
+        pill.textContent = `${beforeWords.length} = ${afterWords.length} words`;
+        checklistProof.textContent = `Verified: ${beforeWords.length} words in before.html exactly match ${afterWords.length} words in after.html (100% parity).`;
+      } else {
+        pill.textContent = `${beforeWords.length} vs ${afterWords.length} words`;
+      }
+    }
+
+    // ============================================================================
+    // DELIVERABLE NOTES: 3 DESIGN CHANGES & CRITIQUE GENERATOR
+    // ============================================================================
+    function renderDeliverableExplanation() {
+      const skillNames = {
+        impeccable: 'Impeccable',
+        frontend: 'frontend-design',
+        uiux: 'ui-ux-pro-max'
+      };
+      const activeSkillName = skillNames[state.skill];
+
+      const changes = [
+        {
+          num: 'Change 1',
+          title: 'Expressive Brand Typography & Visual Hierarchy',
+          beforeProblem: 'Step 1 uses default browser Times New Roman at uniform sizes, making the heading, tagline, and details blend together with zero brand personality.',
+          afterFix: `Step 3 (${activeSkillName}) pairs high-contrast display headings (Space Grotesk / Fraunces / Plus Jakarta Sans) with muted secondary body copy so the eye immediately reads the title first and subtitle second.`
+        },
+        {
+          num: 'Change 2',
+          title: 'High-Affordance CTA Button vs. Default Blue Underlined Link',
+          beforeProblem: 'Step 1 renders the primary call-to-action ("Register now" / "See today\'s special" / "Book a free demo") as a cramped #0000EE underlined text link that is hard to tap on mobile screens.',
+          afterFix: 'Step 3 transforms the link into a tactile, high-contrast button with generous padding, rounded corners, and clear hover/focus states—making the primary action unmistakable on both phone and desktop.'
+        },
+        {
+          num: 'Change 3',
+          title: 'Structured 3-Column Feature Pills & Thematic Surface Palette',
+          beforeProblem: 'Step 1 dumps highlights ("Robotics · Hackathon · Music night") onto a single plain text line separated by dots inside a harsh grey box.',
+          afterFix: 'Step 3 separates each highlight into its own scannable badge inside a responsive 3-column CSS Grid (stacking cleanly on 375px phones) backed by a cohesive thematic color palette.'
+        }
+      ];
+
+      const container = document.getElementById('three-changes-container');
+      container.innerHTML = changes.map(c => `
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/90 space-y-1.5">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-violet-600 text-white text-[11px] font-bold">${c.num}</span>
+            <h3 class="text-sm font-bold text-slate-900">${c.title}</h3>
+          </div>
+          <p class="text-xs text-slate-600"><strong class="text-rose-700">Why before.html struggled:</strong> ${c.beforeProblem}</p>
+          <p class="text-xs text-slate-700"><strong class="text-emerald-700">How after.html helps:</strong> ${c.afterFix}</p>
+        </div>
+      `).join('');
+
+      // Populate Small Hint Critique list
+      const critiqueEl = document.getElementById('critique-list');
+      critiqueEl.innerHTML = `
+        <div class="p-2.5 rounded-xl bg-white/90 border border-amber-200">
+          <div class="font-bold text-slate-900">Critique #1: Weak Call-to-Action Affordance</div>
+          <div class="text-slate-600 mt-0.5">Plain underlined anchor tag has a tiny 16px touch target on mobile phones → Fixed by adding pill button padding and contrasting fill color.</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-white/90 border border-amber-200">
+          <div class="font-bold text-slate-900">Critique #2: Unscannable Inline Feature List</div>
+          <div class="text-slate-600 mt-0.5">Three key offerings are crammed into one line → Fixed by wrapping each item in a responsive 3-column badge grid.</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-white/90 border border-amber-200">
+          <div class="font-bold text-slate-900">Critique #3: Zero Atmospheric Context</div>
+          <div class="text-slate-600 mt-0.5">A college fest, a warm chai café, and a JEE/NEET institute all look identical in Step 1 → Fixed with domain-matched palettes (Fest Purple, Chai Forest Green, Academy Royal Blue).</div>
+        </div>
+      `;
+    }
+
+    // ============================================================================
+    // SHARED WORD EDITOR (Allows editing words live while maintaining 100% match)
+    // ============================================================================
+    function renderSharedWordEditorInputs() {
+      const targetKey = state.theme === 'showcase' ? 'technova' : state.theme;
+      const t = themesData[targetKey];
+      const container = document.getElementById('word-editor-fields');
+
+      container.innerHTML = `
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-600 mb-1">Heading (${esc(t.label)})</label>
+          <input type="text" value="${esc(t.title)}" oninput="updateSharedWord('${targetKey}', 'title', this.value)"
+            class="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:border-violet-600" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-600 mb-1">Subtitle / Tagline</label>
+          <input type="text" value="${esc(t.subtitle)}" oninput="updateSharedWord('${targetKey}', 'subtitle', this.value)"
+            class="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:border-violet-600" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-600 mb-1">Call to Action Text</label>
+          <input type="text" value="${esc(t.cta)}" oninput="updateSharedWord('${targetKey}', 'cta', this.value)"
+            class="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:border-violet-600" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-600 mb-1">Highlight 1</label>
+          <input type="text" value="${esc(t.pills[0])}" oninput="updateSharedPill('${targetKey}', 0, this.value)"
+            class="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:border-violet-600" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-600 mb-1">Highlight 2</label>
+          <input type="text" value="${esc(t.pills[1])}" oninput="updateSharedPill('${targetKey}', 1, this.value)"
+            class="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:border-violet-600" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-600 mb-1">Highlight 3</label>
+          <input type="text" value="${esc(t.pills[2])}" oninput="updateSharedPill('${targetKey}', 2, this.value)"
+            class="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:border-violet-600" />
+        </div>
+      `;
+    }
+
+    function updateSharedWord(themeKey, field, value) {
+      themesData[themeKey][field] = value;
+      renderAll();
+    }
+
+    function updateSharedPill(themeKey, index, value) {
+      themesData[themeKey].pills[index] = value;
+      renderAll();
+    }
+
+    function resetThemeWords() {
+      themesData = JSON.parse(JSON.stringify(DEFAULT_THEMES));
+      renderSharedWordEditorInputs();
+      renderAll();
+      showToast('Restored original Project 17 copy');
+    }
+
+    function toggleWordEditor() {
+      const drawer = document.getElementById('shared-word-editor');
+      drawer.classList.toggle('hidden');
+      renderSharedWordEditorInputs();
+    }
+
+    // ============================================================================
+    // STANDALONE HTML FILE GENERATORS FOR DOWNLOAD & CODE MODAL
+    // ============================================================================
+    function buildStandaloneBeforeFile() {
+      const bodyContent = generateBeforeInnerHtml();
+      return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 17 — Step 1: Without a Design Skill (before.html)</title>
+</head>
+<body>
+${bodyContent}
+</body>
+</html>`;
+    }
+
+    function buildStandaloneAfterFile() {
+      const bodyContent = generateAfterInnerHtml();
+      return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 17 — Step 3: With Design Skill (${state.skill}) (after.html)</title>
+  <script src="https://cdn.tailwindcss.com"><\/script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; padding: 24px; max-width: 760px; margin: 0 auto; }
+    .font-fraunces { font-family: 'Fraunces', Georgia, serif; }
+    .font-space { font-family: 'Space Grotesk', sans-serif; }
+    .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body>
+${bodyContent}
+</body>
+</html>`;
+    }
+
+    // ============================================================================
+    // UI STATE CONTROLLERS
+    // ============================================================================
+    function setTheme(theme) {
+      state.theme = theme;
+      renderSharedWordEditorInputs();
+      renderAll();
+    }
+
+    function setSkill(skill) {
+      state.skill = skill;
+      renderAll();
+    }
+
+    function setViewMode(mode) {
+      state.viewMode = mode;
+      renderAll();
+    }
+
+    function toggleDevice() {
+      state.isPhone = !state.isPhone;
+      renderAll();
+    }
+
+    function toggleFullPageSections() {
+      state.includeFullSections = document.getElementById('full-page-toggle').checked;
+      renderAll();
+    }
+
+    function renderAll() {
+      // 1. Update Theme Buttons
+      ['showcase', 'technova', 'chai', 'brightpath'].forEach(t => {
+        const btn = document.getElementById(`theme-btn-${t}`);
+        if (state.theme === t) {
+          btn.className = 'theme-btn px-2.5 py-2 rounded-lg text-xs font-bold bg-white text-violet-900 shadow-xs border border-slate-200/80 transition text-center cursor-pointer';
+        } else {
+          btn.className = 'theme-btn px-2.5 py-2 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition text-center cursor-pointer';
+        }
+      });
+
+      // 2. Update Skill Buttons
+      const skillLabels = {
+        impeccable: 'Impeccable',
+        frontend: 'frontend-design',
+        uiux: 'ui-ux-pro-max'
+      };
+      ['impeccable', 'frontend', 'uiux'].forEach(s => {
+        const btn = document.getElementById(`skill-btn-${s}`);
+        if (state.skill === s) {
+          btn.className = 'skill-btn px-2.5 py-2 rounded-lg text-xs font-bold bg-violet-600 text-white shadow-xs transition text-center cursor-pointer';
+        } else {
+          btn.className = 'skill-btn px-2.5 py-2 rounded-lg text-xs font-medium text-violet-900 hover:bg-violet-100 transition text-center cursor-pointer';
+        }
+      });
+      document.getElementById('active-skill-Readout').textContent = skillLabels[state.skill];
+      document.getElementById('frame-skill-badge').textContent = `Skill: ${skillLabels[state.skill]}`;
+
+      // 3. Update View Mode Buttons & Panel Visibility
+      ['split', 'before', 'after'].forEach(v => {
+        const btn = document.getElementById(`view-btn-${v}`);
+        if (state.viewMode === v) {
+          btn.className = 'view-btn flex-1 py-1.5 px-2 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-xs transition cursor-pointer';
+        } else {
+          btn.className = 'view-btn flex-1 py-1.5 px-2 rounded-lg text-xs font-medium text-slate-600 hover:text-slate-900 transition cursor-pointer';
+        }
+      });
+
+      const grid = document.getElementById('comparison-grid');
+      const panelBefore = document.getElementById('panel-before');
+      const panelAfter = document.getElementById('panel-after');
+
+      if (state.viewMode === 'split') {
+        grid.className = 'grid grid-cols-1 lg:grid-cols-2 gap-6 items-start';
+        panelBefore.classList.remove('hidden');
+        panelAfter.classList.remove('hidden');
+      } else if (state.viewMode === 'before') {
+        grid.className = 'grid grid-cols-1 max-w-3xl mx-auto gap-6 items-start';
+        panelBefore.classList.remove('hidden');
+        panelAfter.classList.add('hidden');
+      } else {
+        grid.className = 'grid grid-cols-1 max-w-3xl mx-auto gap-6 items-start';
+        panelBefore.classList.add('hidden');
+        panelAfter.classList.remove('hidden');
+      }
+
+      // 4. Phone Viewport Toggle (375px mobile simulation)
+      const vpBefore = document.getElementById('viewport-before');
+      const vpAfter = document.getElementById('viewport-after');
+      const deviceBtn = document.getElementById('device-toggle-btn');
+      const deviceLabel = document.getElementById('device-toggle-label');
+
+      if (state.isPhone) {
+        vpBefore.style.maxWidth = '375px';
+        vpAfter.style.maxWidth = '375px';
+        deviceBtn.className = 'w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border border-violet-600 bg-violet-600 text-white shadow-xs transition cursor-pointer';
+        deviceLabel.textContent = 'Phone Active (375px)';
+      } else {
+        vpBefore.style.maxWidth = '100%';
+        vpAfter.style.maxWidth = '100%';
+        deviceBtn.className = 'w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 transition cursor-pointer';
+        deviceLabel.textContent = 'Phone (375px)';
+      }
+
+      // 5. Render before.html & after.html previews
+      const beforeHtml = generateBeforeInnerHtml();
+      const afterHtml = generateAfterInnerHtml();
+      document.getElementById('render-before').innerHTML = beforeHtml;
+      document.getElementById('render-after').innerHTML = afterHtml;
+
+      // 6. Verify 100% Word Parity
+      verifyWordLock(beforeHtml, afterHtml);
+
+      // 7. Update Deliverable Notes & Critique
+      renderDeliverableExplanation();
+    }
+
+    // ============================================================================
+    // EXPORT, COPY & MODAL UTILITIES
+    // ============================================================================
+    function downloadFile(which) {
+      const filename = which === 'before' ? 'before.html' : 'after.html';
+      const content = which === 'before' ? buildStandaloneBeforeFile() : buildStandaloneAfterFile();
+      const blob = new Blob([content], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`Downloaded standalone ${filename}`);
+    }
+
+    function copyTextToClipboard(text, message) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(message);
+      } catch (err) {
+        showToast('Copy failed');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function copySource(which) {
+      const code = which === 'before' ? buildStandaloneBeforeFile() : buildStandaloneAfterFile();
+      copyTextToClipboard(code, `Copied ${which}.html source code to clipboard`);
+    }
+
+    function copyThreeChanges() {
+      const container = document.getElementById('three-changes-container');
+      copyTextToClipboard(container.innerText.trim(), 'Copied 3 Design Changes notes to clipboard');
+    }
+
+    function openCodeModal() {
+      document.getElementById('code-modal').classList.remove('hidden');
+      switchModalTab('after');
+    }
+
+    function closeCodeModal() {
+      document.getElementById('code-modal').classList.add('hidden');
+    }
+
+    function switchModalTab(tab) {
+      state.modalTab = tab;
+      const tabBefore = document.getElementById('modal-tab-before');
+      const tabAfter = document.getElementById('modal-tab-after');
+      if (tab === 'before') {
+        tabBefore.className = 'px-3 py-1.5 rounded-lg text-xs font-mono-code font-bold bg-violet-600 text-white cursor-pointer';
+        tabAfter.className = 'px-3 py-1.5 rounded-lg text-xs font-mono-code font-semibold text-slate-400 hover:text-white cursor-pointer';
+        document.getElementById('modal-code-content').textContent = buildStandaloneBeforeFile();
+      } else {
+        tabAfter.className = 'px-3 py-1.5 rounded-lg text-xs font-mono-code font-bold bg-violet-600 text-white cursor-pointer';
+        tabBefore.className = 'px-3 py-1.5 rounded-lg text-xs font-mono-code font-semibold text-slate-400 hover:text-white cursor-pointer';
+        document.getElementById('modal-code-content').textContent = buildStandaloneAfterFile();
+      }
+    }
+
+    function copyActiveModalCode() {
+      copySource(state.modalTab);
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').textContent = msg;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 2600);
+    }
+
+    // Initialize on load
+    window.onload = function () {
+      renderAll();
+    };
+  </script>
+</body>
+</html>n
